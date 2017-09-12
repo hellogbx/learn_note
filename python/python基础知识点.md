@@ -10,16 +10,16 @@
 * python中删除元素的方法：
 li = [1,2,3,4,5,6]
 
-    * # 1.使用del删除对应下标的元素
+    * 1.使用del删除对应下标的元素
                          del li[2]
                           # li = [1,2,4,5,6]
-    * # 2.使用.pop()删除最后一个元素
+    * 2.使用.pop()删除最后一个元素
                          li.pop()
                          # li = [1,2,4,5]
-    * # 3.删除指定值的元素
+    * 3.删除指定值的元素
                        li.remove(4)
                        # li = [1,2,5]
-    * # 4.使用切片来删除
+    * 4.使用切片来删除
                        li = li[:-1]
                        # li = [1,2]
                        # !!!切忌使用这个方法，如果li被作为参数传入函数，
@@ -186,7 +186,7 @@ print(next(gen))
 ***
 * 多进程:
     * multiprocessing模块：from  multiprocessing  import  Process：Process类代表一个进程对象。例子如下：
-```
+
 from multiprocessing import Process
 import os
 
@@ -201,9 +201,9 @@ if __name__=='__main__':
     p.start()
     p.join()
     print 'Process end.’
-```
+
     * multiprocessing模块：from  multiprocessing  import  Pool：Pool类代表线程池。例子如下：
-```
+
 from multiprocessing import Pool
 import os, time, random
 
@@ -223,7 +223,7 @@ if __name__=='__main__':
     p.close()
     p.join()
     print 'All subprocesses done.’
-```
+
     * Pool类包含的函数：
     1. apply_async()：非阻塞且支持结果返回进行回调。
     2. map()：内置的map函数用法行为基本一致，它会使进程阻塞直到返回结果。
@@ -239,7 +239,7 @@ if __name__=='__main__':
     * threading模块
     * 启动一个线程就是把一个函数传入并创建Thread实例，然后调用start（）开始执行。例子如下：
 import time, threading
-# 新线程执行的代码:
+新线程执行的代码:
 ```
 def loop():
     print 'thread %s is running...' % threading.current_thread().name
@@ -256,8 +256,8 @@ t.start()
 t.join()
 print 'thread %s ended.' % threading.current_thread().name
 ```
-    * python的threading模块有个current_thread（）函数，它永远返回当前线程的实例。主线程实例的名字叫MainThread，子线程的名字在创建时指定。
-    * threading.Lock（）创建一把锁，例子如下：
+* python的threading模块有个current_thread（）函数，它永远返回当前线程的实例。主线程实例的名字叫MainThread，子线程的名字在创建时指定。
+* threading.Lock（）创建一把锁，例子如下：
 balance = 0
 lock = threading.Lock()
 
@@ -272,9 +272,11 @@ def run_thread(n):
             # 改完了一定要释放锁:
             lock.release()
     * 当多个线程同时执行lock.acquie（）时，只有一个线程能成功获取锁，然后继续执行代码，其他线程就继续等待直到获取锁为止。获取锁的线程用完之后一定要释放锁，否则其他线程只能永远的等待下去，成为死线程。使用try......finally来确保锁一定会被释放。
-
+***
 * eval() 函数用来执行一个字符串表达式，并返回表达式的值。
+***
 * os.path.dirname(__file__)返回脚本的路径，在Django中BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))得到的是项目的路径。
+***
 * 调试Debugging
 Import pdb
 pdb.set_trace()
